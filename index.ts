@@ -1,4 +1,5 @@
 import express, { Express, Request, Response } from "express";
+import connectionDB from "./src/connection/connection";
 
 // Se importa apiRouter de la carpeta src/routes para poder utilizarlo en el archivo index.ts y
 // poder crear las rutas de la aplicacion
@@ -22,6 +23,9 @@ app.use(express.json());
 
 // Se utiliza apiRouter para poder crear las rutas de la aplicacion.
 app.use(apiRouter);
+
+// Se utiliza connectionDB para poder conectarse a la base de datos.
+connectionDB();
 
 // App.listen tiene la funcion de iniciar el servidor. Se ejecuta una sola vez.
 app.listen(port, () => {

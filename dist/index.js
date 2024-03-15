@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const connection_1 = __importDefault(require("./src/connection/connection"));
 // Se importa apiRouter de la carpeta src/routes para poder utilizarlo en el archivo index.ts y
 // poder crear las rutas de la aplicacion
 const routes_1 = __importDefault(require("./src/routes"));
@@ -20,6 +21,8 @@ app.use(morgan("dev"));
 app.use(express_1.default.json());
 // Se utiliza apiRouter para poder crear las rutas de la aplicacion.
 app.use(routes_1.default);
+// Se utiliza connectionDB para poder conectarse a la base de datos.
+(0, connection_1.default)();
 // App.listen tiene la funcion de iniciar el servidor. Se ejecuta una sola vez.
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
