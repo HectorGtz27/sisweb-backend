@@ -10,9 +10,11 @@ const connection = new Sequelize({
   models: [Product],
 });
 
+// Esto sincroniza la base de datos con el modelo. Borra la base de datos y la vuelve a crear.
+// Pero si se pone alter: true, entonces no borra la base de datos, sino que la altera.
 async function connectionDB() {
   try {
-    await connection.sync();
+    await connection.sync({ alter: true });
   } catch (e) {
     console.log(e);
   }

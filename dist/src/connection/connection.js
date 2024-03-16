@@ -19,10 +19,12 @@ const connection = new sequelize_typescript_1.Sequelize({
     storage: ":memory:",
     models: [product_1.Product],
 });
+// Esto sincroniza la base de datos con el modelo. Borra la base de datos y la vuelve a crear.
+// Pero si se pone alter: true, entonces no borra la base de datos, sino que la altera.
 function connectionDB() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield connection.sync();
+            yield connection.sync({ alter: true });
         }
         catch (e) {
             console.log(e);
