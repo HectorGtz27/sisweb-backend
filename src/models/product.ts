@@ -21,6 +21,8 @@ import {
 } from "sequelize-typescript";
 import { Optional } from "sequelize";
 
+// Una interfaz es un contrato, que define que propiedades tiene un objeto, y que tipo de dato tiene cada propiedad
+// En este caso, estamos definiendo un contrato para el modelo de la base de datos de Product
 interface ProductAttributes {
   id: number;
   title: string;
@@ -31,6 +33,10 @@ interface ProductAttributes {
   stock: number;
 }
 
+// Que es el extends? R: El extends es una forma de heredar propiedades de una clase o interfaz
+// Que es el Optional? R: El Optional es una forma de definir propiedades opcionales en una interfaz
+// Que es el ProductAttributes? R: El ProductAttributes es un contrato que define que propiedades tiene un objeto
+// Que es el id? R: El id es una propiedad que tiene que tener un objeto
 interface ProductCreationAttributes extends Optional<ProductAttributes, "id"> {}
 
 @Table({

@@ -1,4 +1,5 @@
 "use strict";
+// param se agarra del url y body se agarra del cuerpo de la peticion
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const productController_1 = require("../controllers/productController");
