@@ -1,5 +1,8 @@
 import { Sequelize } from "sequelize-typescript";
 import { Product } from "../models/product";
+import { Category } from "../models/category";
+import { OrderProduct } from "../models/orderProduct";
+import { Order } from "../models/order";
 
 const connection = new Sequelize({
   database: "sisweb_db",
@@ -7,11 +10,10 @@ const connection = new Sequelize({
   username: "sisweb_user",
   password: "HDK#$%Ljkwerff.89",
   storage: ":memory:",
-  models: [Product],
+  schema: "public",
+  models: [Product, Category, Order, OrderProduct],
 });
 
-// Esto sincroniza la base de datos con el modelo. Borra la base de datos y la vuelve a crear.
-// Pero si se pone alter: true, entonces no borra la base de datos, sino que la altera.
 async function connectionDB() {
   try {
     await connection.sync({ alter: true });
@@ -19,4 +21,5 @@ async function connectionDB() {
     console.log(e);
   }
 }
+
 export default connectionDB;

@@ -1,5 +1,3 @@
-// param se agarra del url y body se agarra del cuerpo de la peticion
-
 import { Router } from "express";
 import {
   createProduct,
